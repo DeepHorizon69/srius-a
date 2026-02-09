@@ -1,5 +1,4 @@
-// UBAH DATA DI SINI JIKA INGIN MENGGANTI NAMA, EMAIL, FOTO, DLL
-// Tidak perlu mengubah kode React di file HTML.
+// Data profil
 
 window.PORTFOLIO_CONFIG = {
   PROFILE: {
@@ -11,8 +10,8 @@ window.PORTFOLIO_CONFIG = {
       "Tertarik pada komputer, sains/fisika, teknologi, elektronika, dan IoT.",
     location: "SMK MUHAMMADIYAH 1 Surabaya",
     email: "razoratstudy@gmail.com",
-    avatar: "udaera.jpg", // ganti dengan nama file foto profil Anda
-    avatarBrand: "udaera.jpg", // ganti dengan logo/brand untuk navbar
+    avatar: "udaera.jpg", // gambar profil
+    avatarBrand: "udaera.jpg", // Gambar navbar
   },
 
   skills: [
@@ -40,25 +39,25 @@ window.PORTFOLIO_CONFIG = {
 
   missions: [
     {
-      title: "Mini Flight Control Dashboard",
-      type: "Proyek UI",
+      title: "Air Quality Monitor",
+      type: "IoT Project",
       description:
-        "Merancang antarmuka kontrol penerbangan sederhana untuk memvisualisasikan ketinggian, kecepatan, dan sikap pesawat.",
-      tech: ["HTML", "CSS", "React"],
+        "Merancang dan membuat alat untuk mengukur kualitas udara di sekitar.",
+      tech: ["Arduino", "Sensor", "IoT"],
     },
     {
-      title: "Orbit Visualizer",
+      title: "Web Design",
       type: "Eksperimen",
       description:
-        "Membuat ilustrasi bagaimana satelit mengorbit bumi dengan menggunakan animasi dan diagram sederhana.",
-      tech: ["CSS Animation", "Diagram"],
+        "Membuat desain web untuk memudahkan pengguna dalam mengakses informasi.",
+      tech: ["HTML", "CSS", "JavaScript", "React"],
     },
     {
-      title: "Aerospace Learning Log",
-      type: "Catatan Belajar",
+      title: "Prototype Game Roblox",
+      type: "Game Development",
       description:
-        "Mendokumentasikan konsep-konsep penting dari dunia kedirgantaraan dalam bentuk artikel singkat.",
-      tech: ["Menulis", "Riset", "Presentasi"],
+        "Membuat prototype game sederhana untuk mengasah kemampuan pemrograman.",
+      tech: ["lua",],
     },
   ],
 
@@ -71,7 +70,7 @@ window.PORTFOLIO_CONFIG = {
     {
       year: "Masa Depan",
       title: "Engineer / Profesional di Bidang Teknologi",
-      desc: "Ingin berkontribusi dalam teknologi komputer, elektronika, IoT, atau industri kedirgantaraan.",
+      desc: "Ingin berkontribusi dalam teknologi komputer, elektronika, IoT, atau industri game.",
     },
     {
       year: "2026",
@@ -83,6 +82,7 @@ window.PORTFOLIO_CONFIG = {
     { icon: "fa-github", label: "GitHub", href: "https://github.com/DeepHorizon69" },
     { icon: "fa-instagram", label: "Instagram", href: "https://www.instagram.com/aizypz?igsh=MWluM2JuZXUzbnBtYw==" },
     { icon: "fa-steam", label: "Steam", href: "https://steamcommunity.com/profiles/76561199367838664/" },
+    { icon: "fa-whatsapp", label: "WhatsApp", href: "https://wa.me/620881027467524" },
   ],
 };
 
