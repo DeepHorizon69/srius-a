@@ -1,0 +1,46 @@
+---
+import { experiences, PROFILE } from '../data/profile';
+
+const navItems = [
+  { href: '#hero', label: 'Beranda', icon: 'fa-house' },
+  { href: '#about', label: 'Tentang', icon: 'fa-user' },
+  { href: '#projects', label: 'Proyek', icon: 'fa-rocket' },
+  { href: '#skills', label: 'Keahlian', icon: 'fa-microchip' },
+  ...(experiences.length > 0
+    ? [{ href: '#experience', label: 'Pengalaman', icon: 'fa-briefcase' }]
+    : []),
+  { href: '#education', label: 'Pendidikan', icon: 'fa-graduation-cap' },
+  { href: '#contact', label: 'Kontak', icon: 'fa-envelope' },
+] as const;
+---
+
+<div id="mobile-nav" class="mobile-nav" data-state="closed" hidden inert>
+  <button type="button" class="mobile-nav__backdrop" data-nav-close aria-label="Tutup menu"></button>
+
+  <aside class="mobile-nav__panel" role="dialog" aria-modal="true" aria-labelledby="mobile-nav-title">
+    <header class="mobile-nav__header">
+      <div class="mobile-nav__profile">
+        <span class="mobile-nav__avatar" aria-hidden="true">{PROFILE.shortName.charAt(0)}</span>
+        <div>
+          <p id="mobile-nav-title" class="mobile-nav__name">{PROFILE.shortName}</p>
+          <p class="mobile-nav__role">Portofolio TJKT & IT</p>
+        </div>
+      </div>
+      <button type="button" class="mobile-nav__close" data-nav-close aria-label="Tutup menu">
+        <i class="fas fa-xmark" aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <nav class="mobile-nav__links" aria-label="Navigasi mobile">
+      {
+        navItems.map((item) => (
+          <a href={item.href} class="mobile-nav__link" data-nav-link>
+            <i class={`fas ${item.icon}`} aria-hidden="true"></i>
+            <span>{item.label}</span>
+            <i class="fas fa-chevron-right mobile-nav__chevron" aria-hidden="true"></i>
+          </a>
+        ))
+      }
+    </nav>
+  </aside>
+</div>

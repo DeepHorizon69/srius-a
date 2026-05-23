@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import profilePhoto from '../assets/udaera.jpg';
+---
+
+<div class="hero-photo">
+  <div class="hero-photo-frame">
+    <Image
+      src={profilePhoto}
+      alt="Foto profil Abbas — portofolio profesional"
+      widths={[320, 400, 480]}
+      sizes="(max-width: 768px) 320px, 400px"
+      width={400}
+      height={500}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
+  <div class="hero-photo-badges">
+    <span class="hero-photo-badge"><i class="fa-solid fa-code"></i> Programer</span>
+    <!-- <span class="hero-photo-badge"><i class="fa-solid fa-microchip"></i> IoT</span> -->
+  </div>
+  <p class="hero-annotation">
+    <strong>Komputer • Teknologi • IoT</strong>
+  </p>
+</div>

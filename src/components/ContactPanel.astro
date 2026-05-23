@@ -1,0 +1,27 @@
+---
+import { PROFILE, contactInfo, socialLinks } from '../data/profile';
+---
+
+<div class="contact-panel reveal">
+  <h2 class="contact-panel__title">{contactInfo.title}</h2>
+  <p class="contact-panel__desc">{contactInfo.description}</p>
+  <a href={`mailto:${PROFILE.email}`} class="contact-panel__email">
+    {PROFILE.email}
+  </a>
+  <p class="contact-panel__region">{contactInfo.region}</p>
+  <div class="contact-panel__actions">
+    {
+      socialLinks.map((link) => (
+        <a
+          href={link.href}
+          class="contact-panel__btn"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <i class={`fab ${link.icon}`} />
+          <span>{link.label}</span>
+        </a>
+      ))
+    }
+  </div>
+</div>

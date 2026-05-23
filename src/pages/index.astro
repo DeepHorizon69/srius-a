@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Badge from '../components/Badge.astro';
+import ContactPanel from '../components/ContactPanel.astro';
+import HeroPhoto from '../components/HeroPhoto.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import {
+  PROFILE,
+  experiences,
+  missions,
+  notes,
+  sectionCopy,
+  skills,
+  timelines,
+  typewriterWords,
+} from '../data/profile';
+
+const wordsAttr = typewriterWords.join('|');
+const projectCount = missions.length;
+---
+
+<BaseLayout
+  title={`${PROFILE.shortName} — Portofolio TJKT & IT`}
+  description="Portofolio Abbas Abdurrohman Al Tsauri — siswa TJKT dengan minat komputer, jaringan, IoT, dan administrasi sistem."
+>
+  <div class="page-wrapper">
+    <section id="hero" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-row">
+            <Badge icon="fas fa-image-portrait" label="Portofolio • TJKT & IT" />
+            <Badge icon="fas fa-microchip" label="Siswa XI TJKT" />
+          </div>
+          <h1 class="hero-title">
+            Halo, saya {PROFILE.shortName}
+            <span class="gradient-text">
+              <span data-typewriter data-words={wordsAttr}></span><span
+                class="typewriter-cursor"></span>
+            </span>
+          </h1>
+          <p class="hero-tagline">{PROFILE.tagline}</p>
+          <div class="hero-meta">
+            <div class="meta-item">
+              <i class="fas fa-location-dot"></i>
+              <span>{PROFILE.location}</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-school"></i>
+              <span>Siswa XI TJKT</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-lightbulb"></i>
+              <span>Komputer, jaringan, fisika, elektronika & IoT.</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a href="#projects" class="btn primary">
+              <i class="fas fa-rocket"></i>
+              <span>Lihat proyek saya</span>
+            </a>
+            <a href="#contact" class="btn ghost">
+              <i class="fas fa-envelope"></i>
+              <span>Hubungi saya</span>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-number">{projectCount}+</span>
+              <span class="stat-label">Proyek</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">{skills.length}</span>
+              <span class="stat-label">Bidang minat</span>
+            </div>
+          </div>
+        </div>
+        <HeroPhoto />
+      </div>
+    </section>
+
+    <section id="about" class="section section-below-fold">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Tentang Saya</p>
+          <h2 class="section-title">Perjalanan & Minat</h2>
+          <p class="section-subtitle">
+            Siswa kelas XI TJKT yang menghubungkan pembelajaran di kelas dengan eksplorasi
+            teknologi di dunia nyata.
+          </p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <h3>Kenapa teknologi?</h3>
+            <p>
+              Dunia teknologi menggabungkan fisika, matematika, dan imajinasi. Setiap perangkat,
+              aplikasi, dan sistem adalah bukti bagaimana sains membawa manusia lebih jauh.
+            </p>
+            <p>
+              Saya senang mempelajari algoritma, pemrograman, dan pengembangan aplikasi secara
+              bertahap.
+            </p>
+          </div>
+          <div class="about-card reveal">
+            <h3>Yang saya sukai</h3>
+            <ul class="about-list">
+              <li>
+                <i class="fas fa-check-circle"></i> Mengeksplorasi komputer, jaringan, dan
+                pemrograman.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Membaca tentang fisika, dan eksplorasi luar angkasa.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Bereksperimen dengan elektronika dan proyek IoT
+                sederhana.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Fotografi dan pengeditan gambar.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-alt section-below-fold">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">{sectionCopy.projects.eyebrow}</p>
+          <h2 class="section-title">{sectionCopy.projects.title}</h2>
+          <p class="section-subtitle">{sectionCopy.projects.subtitle}</p>
+        </div>
+        <div class="card-grid card-grid--projects">
+          {missions.map((mission) => <ProjectCard mission={mission} />)}
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-below-fold">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Keahlian</p>
+          <h2 class="section-title">Bidang Minat</h2>
+          <p class="section-subtitle">
+            Area yang sedang saya dalami seiring perjalanan di jurusan TJKT.
+          </p>
+        </div>
+        <div class="skills-grid">
+          {
+            skills.map((skill) => (
+              <div class="skill-card reveal">
+                <div class="skill-icon">
+                  <i class={`fas ${skill.icon}`} />
+                </div>
+                <h3>{skill.title}</h3>
+                <p>{skill.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    {
+      experiences.length > 0 && (
+        <section id="experience" class="section section-below-fold">
+          <div class="container">
+            <div class="section-header reveal">
+              <p class="eyebrow">{sectionCopy.experience.eyebrow}</p>
+              <h2 class="section-title">{sectionCopy.experience.title}</h2>
+              <p class="section-subtitle">{sectionCopy.experience.subtitle}</p>
+            </div>
+            <div class="timeline">
+              {experiences.map((item) => (
+                <div class="timeline-item reveal">
+                  <div class="timeline-dot" />
+                  <div class="timeline-content">
+                    <span class="timeline-year">{item.period}</span>
+                    <h3>{item.title}</h3>
+                    <p class="timeline-org">{item.org}</p>
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <section id="education" class="section section-alt section-below-fold">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">{sectionCopy.education.eyebrow}</p>
+          <h2 class="section-title">{sectionCopy.education.title}</h2>
+          <p class="section-subtitle">{sectionCopy.education.subtitle}</p>
+        </div>
+        <div class="timeline">
+          {
+            timelines.map((item) => (
+              <div class="timeline-item reveal">
+                <div class="timeline-dot" />
+                <div class="timeline-content">
+                  <span class="timeline-year">{item.year}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact section-below-fold">
+      <div class="container">
+        <ContactPanel />
+      </div>
+    </section>
+
+    <section id="extras" class="section section-below-fold">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Lainnya</p>
+          <h2 class="section-title"><!-- others --></h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <h3>Hobi & aktivitas</h3>
+            <ul class="about-list">
+              {
+                notes.hobbies.map((hobi) => (
+                  <li>
+                    <i class="fas fa-check-circle"></i>
+                    {hobi}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div class="about-card reveal">
+            <h3>Tautan tambahan</h3>
+            {
+              notes.extraLinks.map((link) => (
+                <p class="extra-link">
+                  <a href={link.url}>{link.title}</a>
+                </p>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

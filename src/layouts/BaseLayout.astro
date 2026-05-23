@@ -1,0 +1,62 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import MobileNav from '../components/MobileNav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementBanner from '../components/AnnouncementBanner.astro';
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const ogImage = new URL('/udaera.jpg', Astro.site ?? Astro.url).pathname;
+---
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/udaera.jpg" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/udaera.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script is:inline>
+      try {
+        if (sessionStorage.getItem('hideBanner') === 'true') {
+          document.documentElement.classList.add('hide-wip-banner');
+        }
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light') document.documentElement.classList.add('light-mode');
+      } catch (_) {}
+    </script>
+  </head>
+  <body>
+    <div class="app">
+      <AnnouncementBanner />
+      <Nav />
+      <main class="page-content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <MobileNav />
+    <script>
+      import '../scripts/ui.ts';
+    </script>
+  </body>
+</html>

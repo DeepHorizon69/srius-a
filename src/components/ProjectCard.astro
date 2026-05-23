@@ -1,0 +1,72 @@
+---
+import type { Mission } from '../data/profile';
+
+interface Props {
+  mission: Mission;
+}
+
+const { mission } = Astro.props;
+const imageSrc = mission.image?.trim() ?? '';
+const hasPhoto = imageSrc.length > 0;
+const hasLinks = mission.links.length > 0;
+---
+
+<article class="card card--project reveal">
+  <div class:list={['card-media', { 'card-media--blank': !hasPhoto }]}>
+    {
+      hasPhoto ? (
+        <img
+          src={imageSrc}
+          alt={`Bukti proyek: ${mission.title}`}
+          width={640}
+          height={400}
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <div class="card-media-placeholder" aria-hidden="true">
+          <i class="fas fa-image"></i>
+          <span>Foto proyek</span>
+        </div>
+      )
+    }
+  </div>
+
+  <div class="card-body-wrap">
+    <div class="card-tag">
+      <span>{mission.type}</span>
+    </div>
+    <h3 class="card-title">{mission.title}</h3>
+    <p class="card-body">{mission.description}</p>
+
+    {
+      hasLinks && (
+        <div class="card-proof">
+          <span class="tech-label">Bukti / tautan</span>
+          <div class="card-proof-links">
+            {
+              mission.links.map((link) => (
+                <a
+                  href={link.href}
+                  class="card-proof-link"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  <span>{link.label}</span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      )
+    }
+
+    <div class="card-footer">
+      <span class="tech-label">Teknologi / fokus</span>
+      <div class="chip-row">
+        {mission.tech.map((t) => <span class="chip">{t}</span>)}
+      </div>
+    </div>
+  </div>
+</article>
