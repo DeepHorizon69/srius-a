@@ -5,5 +5,5 @@ export default defineConfig({
   compressHTML: true,
 
   site: 'https://DeepHorizon69.github.io',
-  base: '/pluto-b',
+  base: '/srius-a',
 });
