@@ -298,20 +298,24 @@ function initTypewriter() {
   const words = (el.dataset.words ?? '').split('|').filter(Boolean);
   if (words.length === 0) return;
 
-  if (prefersReducedMotion() || isMobile()) {
+  if (prefersReducedMotion()) {
     el.textContent = words[0];
     return;
   }
 
-  const typingSpeed = 100;
-  const deletingSpeed = 50;
-  const pauseTime = 2000;
+  const mobile = isMobile();
+  const typingSpeed = mobile ? 55 : 100;
+  const deletingSpeed = mobile ? 28 : 50;
+  const pauseTime = mobile ? 2200 : 2000;
   let wordIndex = 0;
   let text = '';
   let isDeleting = false;
   let timer: ReturnType<typeof setTimeout>;
+  let running = true;
 
   const tick = () => {
+    if (!running) return;
+
     const current = words[wordIndex];
     if (isDeleting) {
       text = current.substring(0, text.length - 1);
@@ -330,14 +334,29 @@ function initTypewriter() {
     if (isDeleting && text === '') {
       isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
-      timer = setTimeout(tick, 500);
+      timer = setTimeout(tick, mobile ? 400 : 500);
       return;
     }
     timer = setTimeout(tick, isDeleting ? deletingSpeed : typingSpeed);
   };
 
+  el.textContent = '';
   tick();
-  window.addEventListener('pagehide', () => clearTimeout(timer));
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearTimeout(timer);
+      return;
+    }
+    if (!running) return;
+    clearTimeout(timer);
+    tick();
+  });
+
+  window.addEventListener('pagehide', () => {
+    running = false;
+    clearTimeout(timer);
+  });
 }
 
 function init() {

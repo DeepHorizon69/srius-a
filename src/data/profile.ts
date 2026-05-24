@@ -208,9 +208,9 @@ export const notes = {
 /** Section IDs for anchor navigation & scroll spy */
 export const sections = [
   { id: 'hero', label: 'Beranda' },
+  { id: 'skills', label: 'Keahlian' },
   { id: 'about', label: 'Tentang' },
   { id: 'projects', label: 'Proyek' },
-  { id: 'skills', label: 'Keahlian' },
   ...(experiences.length > 0 ? [{ id: 'experience' as const, label: 'Pengalaman' as const }] : []),
   { id: 'education', label: 'Pendidikan' },
   { id: 'contact', label: 'Kontak' },

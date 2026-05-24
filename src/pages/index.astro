@@ -78,7 +78,32 @@ const projectCount = missions.length;
       </div>
     </section>
 
-    <section id="about" class="section section-below-fold">
+    <section id="skills" class="section section-below-fold">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Keahlian</p>
+          <h2 class="section-title">Bidang Minat</h2>
+          <p class="section-subtitle">
+            Area yang sedang saya dalami seiring perjalanan di jurusan TJKT.
+          </p>
+        </div>
+        <div class="skills-grid">
+          {
+            skills.map((skill) => (
+              <div class="skill-card reveal">
+                <div class="skill-icon">
+                  <i class={`fas ${skill.icon}`} />
+                </div>
+                <h3>{skill.title}</h3>
+                <p>{skill.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-alt section-below-fold">
       <div class="container">
         <div class="section-header reveal">
           <p class="eyebrow">Tentang Saya</p>
@@ -123,7 +148,7 @@ const projectCount = missions.length;
       </div>
     </section>
 
-    <section id="projects" class="section section-alt section-below-fold">
+    <section id="projects" class="section section-below-fold">
       <div class="container">
         <div class="section-header reveal">
           <p class="eyebrow">{sectionCopy.projects.eyebrow}</p>
@@ -132,31 +157,6 @@ const projectCount = missions.length;
         </div>
         <div class="card-grid card-grid--projects">
           {missions.map((mission) => <ProjectCard mission={mission} />)}
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section section-below-fold">
-      <div class="container">
-        <div class="section-header reveal">
-          <p class="eyebrow">Keahlian</p>
-          <h2 class="section-title">Bidang Minat</h2>
-          <p class="section-subtitle">
-            Area yang sedang saya dalami seiring perjalanan di jurusan TJKT.
-          </p>
-        </div>
-        <div class="skills-grid">
-          {
-            skills.map((skill) => (
-              <div class="skill-card reveal">
-                <div class="skill-icon">
-                  <i class={`fas ${skill.icon}`} />
-                </div>
-                <h3>{skill.title}</h3>
-                <p>{skill.desc}</p>
-              </div>
-            ))
-          }
         </div>
       </div>
     </section>
