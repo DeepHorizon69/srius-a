@@ -38,7 +38,6 @@ function initTheme() {
 function hideWipBanner() {
   const banner = document.getElementById('wip-banner');
   document.documentElement.classList.add('hide-wip-banner');
-  sessionStorage.setItem('hideBanner', 'true');
   if (!banner) return;
   banner.hidden = true;
   banner.remove();
@@ -48,11 +47,6 @@ function initBanner() {
   const banner = document.getElementById('wip-banner');
   const close = document.getElementById('banner-close');
   if (!banner) return;
-
-  if (sessionStorage.getItem('hideBanner') === 'true') {
-    hideWipBanner();
-    return;
-  }
 
   close?.addEventListener('click', hideWipBanner);
 }

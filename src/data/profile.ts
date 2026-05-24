@@ -10,7 +10,7 @@ export const PROFILE = {
 } as const;
 
 export const cvDownload = {
-  path: 'cv/Abbas-Abdurrohman-CV.pdf',
+  path: '/cv/Abbas-Abdurrohman-CV.pdf',
   fileName: 'Abbas-Abdurrohman-CV.pdf',
 } as const;
 

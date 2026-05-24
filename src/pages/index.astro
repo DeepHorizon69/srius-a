@@ -18,7 +18,8 @@ import {
 
 const wordsAttr = typewriterWords.join('|');
 const projectCount = missions.length;
-const cvHref = `${import.meta.env.BASE_URL}${cvDownload.path}`;
+const publicBase = import.meta.env.BASE_URL.replace(/\/$/, '');
+const cvHref = `${publicBase}${cvDownload.path}`;
 ---
 
 <BaseLayout

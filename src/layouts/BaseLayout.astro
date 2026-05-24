@@ -39,9 +39,6 @@ const ogImage = new URL('/udaera.jpg', Astro.site ?? Astro.url).pathname;
     />
     <script is:inline>
       try {
-        if (sessionStorage.getItem('hideBanner') === 'true') {
-          document.documentElement.classList.add('hide-wip-banner');
-        }
         const saved = localStorage.getItem('theme');
         if (saved === 'light') document.documentElement.classList.add('light-mode');
       } catch (_) {}
