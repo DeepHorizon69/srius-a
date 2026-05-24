@@ -75,7 +75,7 @@ export const missions = [
       'Merancang dan membuat alat untuk mengukur kualitas udara di sekitar.',
     tech: ['Arduino', 'Sensor', 'IoT'],
     image: '',
-    links: [{ label: 'Dokumentasi', href: 'https://github.com/DeepHorizon69' }],
+     links: [{ label: 'Dokumentasi', href: 'https://youtu.be/dQw4w9WgXcQ?si=37LF2jZnZ5wWUtB7' }],
   },
   {
     title: 'Web Design',
