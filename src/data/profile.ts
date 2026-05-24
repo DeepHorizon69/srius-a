@@ -9,6 +9,14 @@ export const PROFILE = {
   email: 'razoratstudy@gmail.com',
 } as const;
 
+export const cvDownload = {
+  path: 'cv/Abbas-Abdurrohman-CV.pdf',
+  fileName: 'Abbas-Abdurrohman-CV.pdf',
+} as const;
+
+/** Ubah ke `false` untuk mematikan easter egg Devourer of Gods. */
+export const DEVOURER_EASTER_EGG_ENABLED = true;
+
 export const typewriterWords = [
   PROFILE.role,
   'IoT Enthusiast',

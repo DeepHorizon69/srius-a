@@ -29,6 +29,8 @@ function initTheme() {
   apply(dark);
 
   btn?.addEventListener('click', () => {
+    const beforeToggle = new Event('theme:before-toggle', { cancelable: true });
+    if (!document.dispatchEvent(beforeToggle)) return;
     apply(document.documentElement.classList.contains('light-mode'));
   });
 }

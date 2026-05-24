@@ -4,6 +4,8 @@ import Nav from '../components/Nav.astro';
 import MobileNav from '../components/MobileNav.astro';
 import Footer from '../components/Footer.astro';
 import AnnouncementBanner from '../components/AnnouncementBanner.astro';
+import DevourerEasterEgg from '../components/DevourerEasterEgg.astro';
+import { DEVOURER_EASTER_EGG_ENABLED } from '../data/profile';
 interface Props {
   title: string;
   description: string;
@@ -55,6 +57,7 @@ const ogImage = new URL('/udaera.jpg', Astro.site ?? Astro.url).pathname;
       <Footer />
     </div>
     <MobileNav />
+    {DEVOURER_EASTER_EGG_ENABLED && <DevourerEasterEgg />}
     <script>
       import '../scripts/ui.ts';
     </script>

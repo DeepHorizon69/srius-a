@@ -6,6 +6,7 @@ import HeroPhoto from '../components/HeroPhoto.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import {
   PROFILE,
+  cvDownload,
   experiences,
   missions,
   notes,
@@ -17,6 +18,7 @@ import {
 
 const wordsAttr = typewriterWords.join('|');
 const projectCount = missions.length;
+const cvHref = `${import.meta.env.BASE_URL}${cvDownload.path}`;
 ---
 
 <BaseLayout
@@ -61,6 +63,10 @@ const projectCount = missions.length;
             <a href="#contact" class="btn ghost">
               <i class="fas fa-envelope"></i>
               <span>Hubungi saya</span>
+            </a>
+            <a href={cvHref} class="btn download" download={cvDownload.fileName}>
+              <i class="fas fa-file-arrow-down"></i>
+              <span>Download CV</span>
             </a>
           </div>
           <div class="hero-stats">

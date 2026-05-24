@@ -1,0 +1,151 @@
+/* ===== DEVOURER OF GODS EASTER EGG ===== */
+.dog-event {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s ease, visibility 0s linear 0.9s;
+}
+
+.dog-event::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(87, 20, 132, 0.32), transparent 50%),
+        linear-gradient(150deg, rgba(24, 0, 37, 0.5), rgba(7, 4, 18, 0.42));
+}
+
+.dog-event.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.dog-event__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dog-event__dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(900px, calc(100vw - 64px));
+    margin: 0;
+    color: #e879f9;
+    font-size: clamp(1.05rem, 1.7vw, 1.38rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+    text-align: center;
+    text-shadow:
+        0 0 10px rgba(232, 121, 249, 0.9),
+        0 0 28px rgba(192, 38, 211, 0.7);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+.dog-event__dialog.is-visible {
+    opacity: 1;
+}
+
+.dog-event__skip {
+    position: absolute;
+    right: clamp(20px, 4vw, 44px);
+    bottom: clamp(20px, 4vw, 42px);
+    z-index: 1;
+    pointer-events: auto;
+    padding: 10px 18px;
+    border: 1px solid rgba(232, 121, 249, 0.46);
+    border-radius: 999px;
+    color: #f5d0fe;
+    background: rgba(20, 4, 32, 0.58);
+    font: inherit;
+    font-size: 0.88rem;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.32s ease, transform 0.32s ease, background 0.2s ease;
+}
+
+.dog-event.is-active .dog-event__skip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dog-event__skip:hover {
+    color: #ffffff;
+    background: rgba(126, 34, 206, 0.42);
+}
+
+.dog-event__skip:focus-visible {
+    outline: 2px solid #e879f9;
+    outline-offset: 3px;
+}
+
+html.dog-event-active,
+html.dog-event-active body {
+    --bg-main: #090411;
+    --bg-elevated: rgba(19, 7, 31, 0.92);
+    --bg-elevated-soft: rgba(28, 10, 44, 0.82);
+    --accent: #c084fc;
+    --accent-soft: rgba(192, 132, 252, 0.18);
+    --accent-strong: #7e22ce;
+    --text-main: #f2e7ff;
+    --text-muted: #c4b5d8;
+    --border-subtle: rgba(192, 132, 252, 0.34);
+    --gradient-page:
+        radial-gradient(circle at center, rgba(126, 34, 206, 0.28), transparent 48%),
+        radial-gradient(circle at 85% 5%, rgba(192, 132, 252, 0.19), transparent 50%),
+        #090411;
+    --gradient-glass-card: rgba(19, 7, 31, 0.88);
+    --gradient-footer: #090411;
+}
+
+html.dog-event-active body {
+    background: var(--gradient-page);
+}
+
+html.dog-event-active .nav,
+html.dog-event-active .nav--scrolled {
+    background: rgba(19, 7, 31, 0.88);
+    border-bottom-color: rgba(192, 132, 252, 0.28);
+}
+
+html.dog-event-active .card,
+html.dog-event-active .about-card,
+html.dog-event-active .skill-card,
+html.dog-event-active .timeline-content,
+html.dog-event-active .contact-panel {
+    background: rgba(19, 7, 31, 0.84);
+    border-color: rgba(192, 132, 252, 0.26);
+}
+
+html.dog-event-active .badge,
+html.dog-event-active .meta-item,
+html.dog-event-active .stat-card,
+html.dog-event-active .hero-photo-badge,
+html.dog-event-active .chip,
+html.dog-event-active .form-input,
+html.dog-event-active .contact-panel__btn,
+html.dog-event-active .card-media,
+html.dog-event-active .skill-icon {
+    color: var(--text-main);
+    background: rgba(28, 10, 44, 0.82);
+    border-color: rgba(192, 132, 252, 0.28);
+}
+
+html.dog-event-active .footer {
+    background: var(--gradient-footer);
+}
+
+html.dog-event-active .theme-toggle-btn {
+    color: #d8b4fe;
+    background: rgba(126, 34, 206, 0.22);
+    border-color: rgba(192, 132, 252, 0.45);
+}

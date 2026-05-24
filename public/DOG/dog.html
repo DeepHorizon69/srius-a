@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>DoG Easter Egg Attack</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  overflow:hidden;
+
+  background:
+  radial-gradient(
+    circle at center,
+    #180025 0%,
+    #090b16 45%,
+    #05060a 100%
+  );
+}
+
+canvas{
+  position:fixed;
+  inset:0;
+
+  width:100%;
+  height:100%;
+}
+
+button{
+
+  position:fixed;
+
+  top:20px;
+  left:20px;
+
+  z-index:100;
+
+  padding:14px 22px;
+
+  border:none;
+
+  background:#9c27ff;
+
+  color:white;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  font-size:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<button id="trigger">
+  Summon DoG
+</button>
+
+<canvas id="canvas"></canvas>
+<script src="dog.js"></script>
+
+</body>
+</html>

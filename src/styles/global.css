@@ -777,6 +777,17 @@ html.hide-wip-banner #wip-banner {
     background: rgba(15, 23, 42, 0.95);
 }
 
+.btn.download {
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--accent);
+    border-color: rgba(56, 189, 248, 0.45);
+}
+
+.btn.download:hover {
+    background: rgba(56, 189, 248, 0.16);
+    border-color: var(--accent);
+}
+
 .hero-stats {
     display: flex;
     flex-wrap: wrap;
@@ -1550,11 +1561,20 @@ html.light-mode body {
     --shadow-soft: none;
     --shadow-button: none;
     --gradient-page:
-        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.07), transparent 48%),
-        radial-gradient(circle at 100% 0%, rgba(129, 140, 248, 0.09), transparent 48%),
+        radial-gradient(circle at 4% 2%, rgba(14, 165, 233, 0.065), transparent 44%),
+        radial-gradient(circle at 96% 4%, rgba(99, 102, 241, 0.055), transparent 46%),
+        radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.035), transparent 48%),
         #f8fafc;
     --gradient-section-alt:
-        linear-gradient(180deg, #f8fafc 0%, #f1f5f9 28%, #eef2ff 50%, #f1f5f9 72%, #f8fafc 100%);
+        radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241, 0.032), transparent 64%),
+        linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(226, 232, 240, 0.16) 20%,
+            rgba(224, 242, 254, 0.2) 50%,
+            rgba(226, 232, 240, 0.16) 80%,
+            transparent 100%
+        );
     --gradient-glass-card: #ffffff;
     --gradient-contact-panel: linear-gradient(135deg, #eef6ff 0%, #f5f0ff 48%, #fff4ed 100%);
     --gradient-footer: #f8fafc;
@@ -1704,6 +1724,16 @@ html.light-mode .btn.ghost {
 }
 html.light-mode .btn.ghost:hover {
     background: rgba(249, 115, 22, 0.15);
+}
+
+html.light-mode .btn.download {
+    background: rgba(14, 165, 233, 0.06);
+    border-color: rgba(14, 165, 233, 0.35);
+    color: #0284c7;
+}
+
+html.light-mode .btn.download:hover {
+    background: rgba(14, 165, 233, 0.12);
 }
 
 html.light-mode .timeline-dot {
