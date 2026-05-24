@@ -29,7 +29,7 @@
   const tex = {};
   let assetsReady = false;
 
-  const SEGMENTS = 10;
+  const SEGMENTS = 40;
   const SPACING = 78;
   const ROT_SMOOTH = 0.15;
   const MAX_SPEED = 14;
