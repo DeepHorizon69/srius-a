@@ -4,7 +4,7 @@ export const PROFILE = {
   signName: 'ALSA',
   role: 'Siswa TJKT SMK MUHAMMADIYAH 1 Surabaya',
   tagline:
-    'Tertarik pada komputer, sains & fisika, teknologi, elektronika, dan IoT.',
+    'Tertarik pada komputer, teknologi, elektronika, dan IoT.',
   location: 'SMK MUHAMMADIYAH 1 Surabaya',
   email: 'razoratstudy@gmail.com',
 } as const;
